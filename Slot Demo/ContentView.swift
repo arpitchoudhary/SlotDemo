@@ -10,8 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
    
-    private var symbols = ["apple", "cheery", "star"]
-    
+    @State private var symbols = ["apple", "cheery", "star"]
     @State private var numbers = [0,0,0]
     @State private var count = 1000
     
@@ -62,22 +61,9 @@ struct ContentView: View {
                 // cards
                 
                 HStack{
-                    
-                    Image(symbols[numbers[0]])
-                        .resizable().aspectRatio(1, contentMode: .fit)
-                        .background(Color.white.opacity(0.5))
-                        .cornerRadius(20)
-                    
-                    Image(symbols[numbers[1]])
-                        .resizable().aspectRatio(1, contentMode: .fit)
-                        .background(Color.white.opacity(0.5))
-                        .cornerRadius(20)
-                    
-                    
-                    Image(symbols[numbers[2]])
-                        .resizable().aspectRatio(1, contentMode: .fit)
-                        .background(Color.white.opacity(0.5))
-                        .cornerRadius(20)
+                    CardView(symbol: $symbols[numbers[0]])
+                    CardView(symbol: $symbols[numbers[1]])
+                    CardView(symbol: $symbols[numbers[2]])
                 }.padding(.horizontal, 10.0)
                 
                  Spacer()
